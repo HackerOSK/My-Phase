@@ -2,80 +2,81 @@
 *   *                                   
 *   *   *                               
 *   *                                   
-JOB ID 		:	202
+JOB ID 	:	202
 Line Limit Exceeded
 IC 			:	15
 IR 			:	[P, D, 6, 0]
-TTC 			:	15
-TLC 			:	5
+TTC 		:	15
+TLC 		:	5
 
 CAT CAN EAT RAT                         
 RAT                                     
-JOB ID 		:	302
+JOB ID 	:	302
 No Error
 IC 			:	10
 IR 			:	[H,  ,  ,  ]
-TTC 			:	10
-TLC 			:	2
+TTC 		:	10
+TLC 		:	2
 
-JOB ID 		:	102
+JOB ID 	:	102
 Invalid Page Fault
 IC 			:	2
 IR 			:	[L, R, 3, 6]
-TTC 			:	2
-TLC 			:	0
+TTC 		:	1
+TLC 		:	0
 
 ABCD                                    
 ABCD                                    
 MATCH                                   
-JOB ID 		:	401
+JOB ID 	:	401
 Time Limit Exceeded
 IC 			:	11
 IR 			:	[P, D, 5, 0]
-TTC 			:	10
-TLC 			:	3
+TTC 		:	10
+TLC 		:	3
 
-JOB ID 		:	1503
+JOB ID 	:	1503
 Operand Error
 IC 			:	4
 IR 			:	[S, R, 7, A]
-TTC 			:	4
-TLC 			:	0
+TTC 		:	4
+TLC 		:	0
 
-JOB ID 		:	1403
+JOB ID 	:	1403
 Operation Code Error
 IC 			:	9
 IR 			:	[P, A, 3, 0]
-TTC 			:	9
-TLC 			:	0
+TTC 		:	9
+TLC 		:	0
 
-JOB ID 		:	1403
+JOB ID 	:	1403
 Out of Data
 IC 			:	1
 IR 			:	[G, D, 3, 0]
-TTC 			:	1
-TLC 			:	0
-
-JOB ID 		:	402
-Time Limit Exceeded
-IC 			:	4
-IR 			:	[G, D, 4, 0]
-TTC 			:	5
-TLC 			:	0
+TTC 		:	1
+TLC 		:	0
 
 SHE SELLS   SEA SHELLS ON               
-JOB ID 		:	403
+JOB ID 	:	402
+Time Limit Exceed + Operand Error
+IC 			:	5
+IR 			:	[P, D, 3, F]
+TTC 		:	5
+TLC 		:	1
+
+SHE SELLS   SEA SHELLS ON               
+JOB ID 	:	403
 Time Limit Exceed + Operation Code Error
 IC 			:	5
 IR 			:	[P, S, 4, 0]
-TTC 			:	5
-TLC 			:	1
+TTC 		:	5
+TLC 		:	1
 
 SHE SELLS   SEA SHELLS ON               
-JOB ID 		:	405
+JOB ID 	:	405
 Time Limit Exceeded
 IC 			:	4
 IR 			:	[S, R, 3, 2]
-TTC 			:	4
-TLC 			:	1
+TTC 		:	4
+TLC 		:	1
 

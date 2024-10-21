@@ -1,82 +1,110 @@
+A MAN A PLAN A CANAL PANAMA             
+JOB ID 	:	102
+No Error
+IC 			:	21
+IR 			:	[H,  ,  ,  ]
+TTC 		:	21
+TLC 		:	1
+
+HOPE FOR IT                             
+THERE IS NO HOPE                        
+BUT STILL HOPE                          
+JOB ID 	:	201
+No Error
+IC 			:	12
+IR 			:	[H,  ,  ,  ]
+TTC 		:	10
+TLC 		:	3
+
+3 LITTLE PIGS WENT TO OS CLASS.         
+THE WOLF ATE ONE!                       
+2 LITTLE PIGS WENT TO OS CLASS.         
+THE WOLF ATE ONE!                       
+1 LITTLE PIGS WENT TO OS CLASS.         
+THE WOLF ATE ONE!                       
+CLASS DISMISSED!                        
+JOB ID 	:	3
+No Error
+IC 			:	17
+IR 			:	[H,  ,  ,  ]
+TTC 		:	17
+TLC 		:	7
+
 *                                       
 *   *                                   
 *   *   *                               
 *   *                                   
-JOB ID 		:	202
-Line Limit Exceeded
-IC 			:	15
-IR 			:	[P, D, 6, 0]
-TTC 			:	15
-TLC 			:	5
+*                                       
+JOB ID 	:	202
+No Error
+IC 			:	16
+IR 			:	[H,  ,  ,  ]
+TTC 		:	16
+TLC 		:	5
 
-CAT CAN EAT RAT                         
-RAT                                     
-JOB ID 		:	302
+   N   U   T   R   A   F   I   N        
+   N                                    
+JOB ID 	:	7
+No Error
+IC 			:	20
+IR 			:	[H,  ,  ,  ]
+TTC 		:	20
+TLC 		:	2
+
+VIT IS GOOD                             
+VIIT IS GOOD                            
+BOTH ARE SISTER INSTITUTES              
+JOB ID 	:	301
 No Error
 IC 			:	10
 IR 			:	[H,  ,  ,  ]
-TTC 			:	10
-TLC 			:	2
+TTC 		:	10
+TLC 		:	3
 
-JOB ID 		:	102
-Invalid Page Fault
-IC 			:	2
-IR 			:	[L, R, 3, 6]
-TTC 			:	2
-TLC 			:	0
+CAT CAN EAT RAT                         
+RAT CAN NOT EAT CAT                     
+RAT CAN EAT RAT                         
+JOB ID 	:	302
+No Error
+IC 			:	8
+IR 			:	[H,  ,  ,  ]
+TTC 		:	8
+TLC 		:	3
+
+I LIKE THIS PEN OF  HIS                 
+JOB ID 	:	101
+No Error
+IC 			:	5
+IR 			:	[H,  ,  ,  ]
+TTC 		:	5
+TLC 		:	1
 
 ABCD                                    
 ABCD                                    
 MATCH                                   
-JOB ID 		:	401
-Time Limit Exceeded
-IC 			:	11
-IR 			:	[P, D, 5, 0]
-TTC 			:	10
-TLC 			:	3
+JOB ID 	:	401
+No Error
+IC 			:	12
+IR 			:	[H,  ,  ,  ]
+TTC 		:	11
+TLC 		:	3
 
-JOB ID 		:	1503
-Operand Error
-IC 			:	4
-IR 			:	[S, R, 7, A]
-TTC 			:	4
-TLC 			:	0
+   RAT                                  
+   SAT                                  
+   ON                                   
+   MAT                                  
+JOB ID 	:	402
+No Error
+IC 			:	13
+IR 			:	[H,  ,  ,  ]
+TTC 		:	13
+TLC 		:	4
 
-JOB ID 		:	1403
-Operation Code Error
-IC 			:	9
-IR 			:	[P, A, 3, 0]
-TTC 			:	9
-TLC 			:	0
-
-JOB ID 		:	1403
-Out of Data
-IC 			:	1
-IR 			:	[G, D, 3, 0]
-TTC 			:	1
-TLC 			:	0
-
-
-JOB ID 		:	402
-Time Limit Exceeded
-IC 			:	4
-IR 			:	[G, D, 4, 0]
-TTC 			:	5
-TLC 			:	0
-
-SHE SELLS   SEA SHELLS ON               
-JOB ID 		:	403
-Time Limit Exceed + Operation Code Error
-IC 			:	5
-IR 			:	[P, S, 4, 0]
-TTC 			:	5
-TLC 			:	1
-
-SHE SELLS   SEA SHELLS ON               
-JOB ID 		:	405
-Time Limit Exceeded
-IC 			:	4
-IR 			:	[S, R, 3, 2]
-TTC 			:	4
-TLC 			:	1
+RAM  IS OLDER THAN  SHRIRAM             
+JOB ID 	:	102
+No Error
+IC 			:	8
+IR 			:	[H,  ,  ,  ]
+TTC 		:	6
+TLC 		:	1
 

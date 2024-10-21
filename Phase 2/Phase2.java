@@ -41,6 +41,8 @@ public class Phase2  {
     private int ptrPointer;
     private ArrayList<Integer>AllocateList =  new ArrayList<>();
 
+    private boolean isTerminated;
+
     private String input_File;
     private String output_File;
 
@@ -74,16 +76,7 @@ public class Phase2  {
         System.out.println("Enter in Load Function");
         String Reader = bReader.readLine();
         System.out.println(Reader);
-        // Calling Allocate function to Generate the Random number
-//        this.PTR = ALLOCATE()*10;
-////      Initialization of Page Table
-//        for(int i = PTR;i<PTR+10;i++)
-//        {
-//            M[i][0] = '0';
-//            M[i][2] = '*';
-//            M[i][3] = '*';
-//        }
-//        ptrPointer = PTR;
+
 
 
         while(Reader!=null)
@@ -93,6 +86,7 @@ public class Phase2  {
 //            Loading Control Card Data
             if(Reader.contains("$AMJ"))
             {
+                INIT();
 //                PID,TTL,TLL
                 int temp[] = new int[3];
                 int j =0;
@@ -115,7 +109,7 @@ public class Phase2  {
             else if(Reader.contains("$END"))
             {
                 printMemory();
-                INIT();
+
 
             }
             else if(!Reader.contains("$") && cardReader[0] && !cardReader[1])
@@ -192,6 +186,7 @@ public class Phase2  {
         this.p1 = new PCB(0,0,0);
         this.VaToRa.clear();
         count=0;
+        this.isTerminated = false;
     }
 
     //    3. Print Memory
@@ -264,12 +259,12 @@ public class Phase2  {
                     break;
                 case "LR":
 //                    Storing the data from Memory -----> Register
-                    if(TTC>p1.TTL)
-                    {
-                       TI = 2;
-                        loop=false;
-                        return;
-                    }
+//                    if(TTC>p1.TTL)
+//                    {
+//                       TI = 2;
+//                        loop=false;
+//                        return;
+//                    }
                     j=0;
                     for(char i : M[operand])
                     {
@@ -280,12 +275,12 @@ public class Phase2  {
                     break;
                 case "SR":
 //                    Loading the data from Register ----> Memory
-                    if(TTC>p1.TTL)
-                    {
-                        TI = 2;
-                        loop=false;
-                        return;
-                    }
+//                    if(TTC>p1.TTL)
+//                    {
+//                        TI = 2;
+//                        loop=false;
+//                        return;
+//                    }
                     j = 0;
                     for(char i : R)
                     {
@@ -295,12 +290,12 @@ public class Phase2  {
                     break;
                 case "CR":
 //                    Comparing the data of Register -----> Memory
-                    if(TTC>p1.TTL)
-                    {
-                        TI = 2;
-                        loop=false;
-                        return;
-                    }
+//                    if(TTC>p1.TTL)
+//                    {
+//                        TI = 2;
+//                        loop=false;
+//                        return;
+//                    }
                     int c = 0;
                     j=0;
                     for(char i : R)
@@ -320,12 +315,12 @@ public class Phase2  {
                     }
                     break;
                 case "BT":
-                    if(TTC>p1.TTL)
-                    {
-                        TI = 2;
-                        loop=false;
-                        return;
-                    }
+//                    if(TTC>p1.TTL)
+//                    {
+//                        TI = 2;
+//                        loop=false;
+//                        return;
+//                    }
                     if(C) {
                         this.IC = operand;
                         System.out.println("IC = "+IC);
@@ -341,9 +336,13 @@ public class Phase2  {
             System.out.println("SI = "+SI);
             System.out.println("PI = "+PI);
             System.out.println("TI = "+TI);
-            if(MOS(operand)==-1)
-            {
-                loop = false;
+            if(!this.isTerminated) {
+                if (MOS(operand) == -1) {
+                    loop = false;
+                }
+            }
+            else{
+                loop=false;
             }
             SI=0;
             PI=0;
@@ -380,8 +379,24 @@ public class Phase2  {
                 return -1;
             }else if(PI==3)
             {
-                TERMINATE(6);
-                return -1;
+                if((IR[0]=='G' && IR[1]=='D') || (IR[0]=='S' && IR[1]=='R') ){
+                    int temp = ALLOCATE();
+                    VaToRa.put(operand,temp);
+                    // printf("Allocated memory block is %d for %d operand\n\n\n",value[key_index] ,key[key_index]);
+                    M[ptrPointer][0]='1';
+                    M[ptrPointer][3]=(char)(temp%10+'0');
+                    M[ptrPointer][2]=(char)(temp/10+'0');
+                    ptrPointer++;
+                    RA = VaToRa.get(operand)*10 + operand%10;
+                    PI=0;
+                    return 1;
+                }
+                else {
+                    TERMINATE(6);
+                    this.isTerminated=true;
+                    return -1;
+                }
+
             }
             else if(SI==1)
             {
@@ -398,11 +413,11 @@ public class Phase2  {
         {
             if(PI==1)
             {
-                TERMINATE(8);
+                TERMINATE(7);
                 return -1;
             }else if(PI==2)
             {
-                TERMINATE(7);
+                TERMINATE(8);
                 return -1;
             }else if(PI==3)
             {
@@ -518,16 +533,16 @@ public class Phase2  {
                 error = "Invalid Page Fault";
                 break;
             case 7:
-                error = "Time Limit Exceed + Operand Error";
+                error = "Time Limit Exceed + Operation Code Error";
                 break;
             case 8:
-                error = "Time Limit Exceed + Operation Code Error";
+                error = "Time Limit Exceed + Operand Error";
                 break;
             default:
                 System.out.println("Invalide Error Message");
         }
 
-        bWriter.write("JOB ID \t\t:\t"+p1.JID);
+        bWriter.write("JOB ID \t:\t"+p1.JID);
         bWriter.newLine();
         bWriter.write(error);
         bWriter.newLine();
@@ -535,9 +550,9 @@ public class Phase2  {
         bWriter.newLine();
         bWriter.write("IR \t\t\t:\t"+Arrays.toString(IR));
         bWriter.newLine();
-        bWriter.write("TTC \t\t\t:\t"+TTC);
+        bWriter.write("TTC \t\t:\t"+TTC);
         bWriter.newLine();
-        bWriter.write("TLC \t\t\t:\t"+TLC);
+        bWriter.write("TLC \t\t:\t"+TLC);
         bWriter.write("\n");
         bWriter.write("\n");
     }
@@ -595,7 +610,7 @@ private void ADDRESSMAP(int IC)
 
 
 // Add into MAP
-    private void MAP(int add)
+    private void MAP(int add) throws Exception
     {
         if((int)(IR[2]-'0')<0 || (int)(IR[2]-'0')>9 || (int)(IR[3]-'0')<0 || (int)(IR[3]-'0')>9){
             if(IR[0]!='H') {
@@ -617,19 +632,12 @@ private void ADDRESSMAP(int IC)
             System.out.println("from map");
             return;
         }
-        if((IR[0]=='G' && IR[1]=='D') || (IR[0]=='S' && IR[1]=='R') ){
-            int temp = ALLOCATE();
-           VaToRa.put(add,temp);
-            // printf("Allocated memory block is %d for %d operand\n\n\n",value[key_index] ,key[key_index]);
-            M[ptrPointer][0]='1';
-            M[ptrPointer][3]=(char)(temp%10+'0');
-            M[ptrPointer][2]=(char)(temp/10+'0');
-            ptrPointer++;
-            RA = VaToRa.get(add)*10;
-        }
+//        change by mos
+
         else{
             PI=3;
-            return;
+//            return;
+            int a = MOS(add);
         }
     }
 
