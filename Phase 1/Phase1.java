@@ -299,7 +299,7 @@ public class Phase1  {
             }
             if(j>99)
             {
-                System.out.println("Memory Exceed!");
+                System.out.println("Memory Exceeded!");
                 break;
             }
             i = M[j][col%4];
